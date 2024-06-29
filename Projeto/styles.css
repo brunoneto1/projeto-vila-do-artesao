@@ -1,0 +1,551 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #efeae2;
+    color: #717171;
+    position: relative;
+}
+
+header {
+    background-color: #bc8751;
+    color: #efeae2;
+    padding: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+.noticia {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(75, 75, 75, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.titulo {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.descricao {
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.user-icon {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2em;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user-icon:hover {
+    color: #ddd;
+}
+
+.mapa {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.map-container {
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.map-image {
+    position: absolute;
+    max-width: 10%;
+    transition: transform 1s ease; /* Adicionando a transição */
+}
+.map-image:hover {
+    transform: scale(2); 
+}
+
+
+.image1 { top: 20%; left: 16%; }
+.image2 { top: 14%; left: 35%; }
+.image3 { top: 73%; left: 65%; }
+.image4 { top: 5%; left: 60%; }
+
+.imagem {
+    margin-right: 20px;
+    max-width: 195px;
+    max-height: 260px;
+    border-radius: 10px;
+}
+
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+}
+
+.welcome-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #a28f8a;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #575757;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+    header {
+        padding: 5px;
+    }
+    .menu-btn {
+        font-size: 1.2em;
+        top: 15px;
+        left: 15px;
+    }
+    .user-icon {
+        font-size: 1.5em;
+        top: 20px;
+        right: 20px;
+    }
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    .map-image {
+        max-width: 15%;
+    }
+    .image1 { top: 15%; left: 10%; }
+    .image2 { top: 25%; left: 45%; }
+    .image3 { top: 60%; left: 25%; }
+    .image4 { top: 75%; left: 60%; }
+}
+/* Reset de estilos e estilos básicos */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f2f2;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    background-color:  #bc8751;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(175, 33, 33, 0.1);
+  }
+  
+  .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .header .navbar {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .header .navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .header .navbar a:hover {
+    color: #2c2a27;
+  }
+  
+  /* Container do formulário */
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  .container h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #000000;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: #3f464e;;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background-color: #bc8751;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color:  #bc8751;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+    }
+  
+    button[type="submit"] {
+      padding: 10px 16px;
+    }
+  }
+  /* Cabeçalho */
+  .header {
+    background-color:  #bc8751;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(175, 33, 33, 0.1);
+  }
+  
+  .header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .header .navbar {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+  }
+  
+  .header .navbar a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .header .navbar a:hover {
+    color: #2c2a27;
+  }
+  
+  /* Container do formulário */
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  .container h2 {
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #000000;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: #3f464e;;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  button[type="submit"] {
+    background-color: #bc8751;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color:  #bc8751;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      padding: 10px;
+    }
+  
+    button[type="submit"] {
+      padding: 10px 16px;
+    }
+  }
+  /* Reset de estilos e estilos básicos */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f2f2;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Cabeçalho */
+.header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.header .navbar {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.header .navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header .navbar a:hover {
+  color:  #bc8751;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.container h2 {
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* Cronograma */
+.schedule {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.schedule-item {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(199, 41, 41, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.schedule-item h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.schedule-item p {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.schedule-item:hover {
+  background-color:  #bc8751;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+  .schedule {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 900px) {
+  .schedule {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

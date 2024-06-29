@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo de Cabeçalho</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Aqui será o CSS específico para o cabeçalho */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .header .navbar {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+    }
+
+    .header .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .header .navbar a:hover {
+      color: #bc8751;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">vila do artesao</div>
+  <div class="navbar">
+    <a href="mapa.html">mapa</a>
+    <a href="cronograma.html">cronograma</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">sobre nós </a>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Deixe aqui seu comentario </h2> 
+  <form action="submit_suggestion.php" method="POST">
+    <div class="form-group">
+      <label for="name">Seu nome:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Seu e-mail:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="suggestion">Sua sugestão:</label>
+      <textarea id="suggestion" name="suggestion" rows="4" required></textarea>
+    </div>
+    
+    <button type="submit">Enviar sugestão</button>
+  </form>
+</div>
+
+</body>
+</html>

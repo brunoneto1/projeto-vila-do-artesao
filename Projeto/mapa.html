@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turista Maps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <h1>Turista Maps</h1>
+        <a href="./html/signin.html" class="user-icon">&#128100;</a>
+    </header>
+
+
+    <div class="welcome-overlay"></div>
+
+    <div class="welcome-card">
+        <h2>Bem-Vindo!</h2>
+        <p>Seja bem-vindo ao Turista Maps. aqui ajudaremos você a se locomover melhor,
+            explorar novas coisas e ficar por dentro de tudo que acontece aqui na Vila do Artesão. Esperamos que você encontre o que procura, divirta-se!</p>
+        <button onclick="closeWelcome()">Fechar</button>
+    </div>
+
+
+    <div class="map-container">
+        <img src="./img/mapaVilaDoArtesao.jpeg" alt="Mapa da vila" class="mapa">
+        <img src="./img/bola1.png" alt="Imagem 1" class="map-image image1" onmouseover="trocarImagem(this, 1)" onmouseout="trocarImagem(this, 1)">
+        <img src="./img/bola2.png" alt="Imagem 2" class="map-image image2" onmouseover="trocarImagem(this, 2)" onmouseout="trocarImagem(this, 2)">
+        <img src="./img/bola3.png" alt="Imagem 3" class="map-image image3" onmouseover="trocarImagem(this, 3)" onmouseout="trocarImagem(this, 3)">
+        <img src="./img/bola4.png" alt="Imagem 4" class="map-image image4" onmouseover="trocarImagem(this, 4)" onmouseout="trocarImagem(this, 4)">
+    </div>
+
+
+    <div class="side-menu" id="sideMenu">
+        <button class="close-btn" onclick="toggleMenu()">×</button>
+        <a href="./cronograma.html">Cronograma</a>
+        <a href="./sugestões.html">Sugestões</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var sideMenu = document.getElementById('sideMenu');
+            if (sideMenu.style.width === '0px' || sideMenu.style.width === '') {
+                sideMenu.style.width = '225px';
+            } else {
+                sideMenu.style.width = '0';
+            }
+        }
+
+
+
+        function closeWelcome() {
+            var welcomeOverlay = document.querySelector('.welcome-overlay');
+            var welcomeCard = document.querySelector('.welcome-card');
+            welcomeOverlay.style.display = 'none';
+            welcomeCard.style.display = 'none';
+        }
+
+        function trocarImagem(imagem, numero) {
+            if (imagem.src.includes('bola')) {
+                    imagem.src = "img/cartao" + numero + ".png";
+            } else {
+                setTimeout(function() {
+                    imagem.src = "img/bola" + numero + ".png";
+                }, 200);
+            }
+        }
+    </script>
+</body>
+
+</html>
